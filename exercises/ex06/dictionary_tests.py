@@ -20,34 +20,32 @@ def test_invert_expected_2():
 
 def test_invert_edge():
     """Testing an edge case for the invert function"""
-    d3: dict = {'mickey': 'mouse', 'minnie': 'mouse'}
+    d3: dict = {}
     expected_dict3 = invert(d3)
-    assert expected_dict3 == {'mouse': 'minnie'}
+    assert expected_dict3 == {}
 
 
 def test_fav_color_expected_1():
     """Testing if favorite_color returns the most common color in a valid use case."""
-    color_people: dict = {'blue': 'abby', 'green': 'jake', 'blue': 'jerry'}
+    color_people: dict = {'abby': 'blue', 'jake': 'green', 'jerry': 'blue'}
     result = favorite_color(color_people)
     assert result == 'blue'
 
 
 def test_fav_color_expected_1():
     """Testing if favorite_color returns the most common color in another valid use case."""
-    color_people2: dict = {'green': 'mary', 'pink': 'max', 'pink': 'ben'}
+    color_people2: dict = {'mary': 'green', 'max': 'pink', 'ben': 'pink'}
     result = favorite_color(color_people2)
     assert result == 'pink'
 
 
 def test_fav_color_error():
     """Test favorite_color with same number values at each key."""
-    color_people3: dict = {'green': 'mary', 'pink': 'jasmine', 'blue': 'ben'}
+    color_people3: dict = {'mary': 'green', 'jasmine': 'pink', 'ben': 'blue'}
     result = favorite_color(color_people3)
-    assert result == 'green, pink, blue'
+    assert result == ""
 
    
-
-
 def test_count_expected_1():
     """Testing the count funciton with valid use case."""
     l1: list = ['coke', 'sprite', 'fanta', 'pepsi']
@@ -82,6 +80,7 @@ def test_alphabetizer_expected_2():
     result = alphabetizer(grocery_list)
     assert result == {'A': 'Apple', 'B': 'Banana', 'M': 'Milk', 'S': 'Strawberry'}
 
+
 def test_alphabetizer_empty():
     """Test if the alphabetize function returns an empty dictionary with empty input list."""
     result = alphabetizer([])
@@ -95,12 +94,14 @@ def test_update_attendance_expected_1():
     result = update_attendance(student_name)
     assert result == {'Monday': 'Cindy, Ben, Eva, Charlie'}
 
+
 def test_update_attendance_expected_2():
     """Testing the update_attendance function with another valid use case."""
     day_of_week: str = "Tuesday"
     student_name: list[str] = ['Sally', 'Ben', 'Cindy', 'Charlie']
     result = update_attendance(student_name)
     assert result == {'Tuesday': 'Sally, Ben, Cindy, Charlie'}
+
 
 def test_update_attendance_edge():
     """Test update_attendance function with empty list input"""
